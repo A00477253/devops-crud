@@ -32,8 +32,5 @@ public class CrudController {
         return studentService.getStudentByName(name);
     }
 
-    @GetMapping("/loveInfinite")
-    public String loveMessage(){
-        return "I love you and krishvi kutty from canada with lots of love";
-    }
+
 }
