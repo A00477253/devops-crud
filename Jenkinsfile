@@ -11,31 +11,5 @@ pipeline {
                 bat 'mvn clean install'
             }
         }
-        stage('Build Docker image'){
-            steps{
-                script{
-                    bat 'docker build -t viggii1963/devops-integration .'
-                }
-            }
-        }
-        stage('Push image to hub'){
-            steps{
-                script{
-                    withCredentials([string(credentialsId: 'dockerhubpwd', variable: 'dockerhubpwd')])
-                    {
-
-
-                        bat 'docker login -u viggii1963 -p ${dockerhubpwd}'
-                        bat 'docker push viggii1963/devops-integration'
-                    }
-
-                }
-            }
-        }
-        stage('Docker Deploy'){
-        steps{
-            bat 'docker run -p 8081:8081 viggii1963/devops-integration '
-        }
-        }
-    }
+}
 }
