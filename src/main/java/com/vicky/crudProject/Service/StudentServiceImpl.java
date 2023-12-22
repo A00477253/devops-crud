@@ -34,4 +34,9 @@ public class StudentServiceImpl implements StudentService{
     public List<Student> getStudentByName(String name) {
         return studentDao.getStudentByName(name);
     }
+
+    @Override
+    public List<Student> getStudents() {
+        return studentRespository.findAll();
+    }
 }
